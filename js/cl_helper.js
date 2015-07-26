@@ -350,7 +350,10 @@ function _get_comunicados(nid,page){
 
 
 function _gethora(strDate) {
-	var currentTime = new Date(strDate)
+	var s = strDate.replace(/[ :]/g, "-").split("-");
+    var currentTime = new Date( s[0], s[1], s[2], s[3], s[4], s[5] );
+	
+	//var currentTime = new Date(strDate);
 	var hours = currentTime.getHours()
 	var minutes = currentTime.getMinutes()
 
