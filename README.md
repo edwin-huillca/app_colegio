@@ -21,6 +21,26 @@ data_request = {
 };
 cl_get_data( data_request );
 
+// Agenda por fecha e hijo
+data_request = {
+  name: 'cl_agenda',
+  fecha_agenda: '2015-07-25', // fecha de la agenda
+  hijo:  '4',  // id del hijo
+  done: function( data_recibida ){ console.log( data_recibida ); },
+  fail: function( data_recibida ){ console.log('error:'); console.log( data_recibida ); }
+};
+cl_get_data( data_request );
+
+// Comunicados
+data_request = {
+  name: 'cl_comunicados',
+  hijo:  '4',  // id del hijo
+  done: function( data_recibida ){ console.log( data_recibida ); },
+  fail: function( data_recibida ){ console.log('error:'); console.log( data_recibida ); }
+};
+cl_get_data( data_request );
+
+
 ```
 
 

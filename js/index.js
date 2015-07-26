@@ -36,11 +36,10 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-alert('hi');
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-alert('hi');
+
 /*
 
         var parentElement = document.getElementById(id);
@@ -57,22 +56,28 @@ alert('hi');
 
 //app.initialize();
 
+
 // jdrupal settings
 Drupal.settings.site_path = "http://colegio.logicaldesign.pe";
 Drupal.settings.endpoint = "rest";
 
-var hoy = new Date();
-var dd = hoy.getDate();
-var mm = hoy.getMonth()+1;
-var yyyy = hoy.getFullYear();
 
-$(".lb_fecha_hoy").html(dd + "/" + mm + "/" + yyyy);
-
+// jqm settings
 $.support.cors = true;
 $.mobile.allowCrossDomainPages = true;
 
+// app settings
+var hoy = new Date();
+var _dd = hoy.getDate();
+var _mm = hoy.getMonth()+1;
+var _yyyy = hoy.getFullYear();
+
+var cl_app = {};
+cl_app.hijo_activo = 0; // guarda el nid del hijo activo
+
+
 // Panel for left menu
-var panel = '<div data-role="panel" id="cl_left_menu" data-position="left" data-display="push" data-theme="b"><div data-role="header"><h1>Menu</h1></div><ul data-role="listview" data-inset="true"><li><a href="#cl_dashboard">Home</a></li><li><a href="#cl_diario_calendar">Agenda</a></li><li><a href="#">Direcci&oacute;n del colegio</a></li><li><a href="#">Menu del d&iacute;a</a></li><li><a href="#">Horario del profesor</a></li><li><a href="#">Horario de clases</a></li></ul></div>';
+var panel = '<div data-role="panel" id="cl_left_menu" data-position="left" data-display="push" data-theme="b"><div data-role="header"><h1>Menu</h1></div><ul data-role="listview" data-inset="true"><li><a href="#cl_dashboard">Home</a></li><li><a href="#cl_agenda">Agenda</a></li><li><a href="#cl_comunicados">Comunicados</a></li><li><a href="#">Direcci&oacute;n del colegio</a></li><li><a href="#">Menu del d&iacute;a</a></li><li><a href="#">Horario del profesor</a></li><li><a href="#">Horario de clases</a></li><li><a href="#cl_salir">Salir</a></li></ul></div>';
 $(document).one('pagebeforecreate', function () {
     $.mobile.pageContainer.prepend(panel);
     $("#cl_left_menu").panel().enhanceWithin();
@@ -82,10 +87,34 @@ $(document).one('pagebeforecreate', function () {
 
 $( document ).on( "pageinit", function() {
 
-  // when very page loads for first time
-
+  // when any page loads for first time
+	$(".sel_hijos").on('change', function ($x, $page){
+		var nid = 0;
+		if (cl_app.hijo_activo ==0) nid = parseInt($(this).val(),10);
+		
+		//Not evento trigger
+		if ($page !=""){
+			$page =$(this).attr("id").replace("selhijos_","");
+			
+			nid = parseInt($(this).val(),10);
+			cl_app.hijo_activo = nid;
+		}
+		
+		if ($page =="dashboard" || $page=="diario_calendar"){
+			_get_comunicaciones(nid,$page);
+		}else if($page =="agenda"){
+			_get_agenda(nid,$page);
+		}else if($page =="comunicados"){
+			_get_comunicados(nid,$page);
+		}
+		
+		return false;
+	});
 
 });
+
+
+
 
 
 

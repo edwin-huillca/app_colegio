@@ -42,8 +42,49 @@
 
 <body>
 
+
+<section data-role="page" id="cl_dashboard">
+    <div data-role="header" data-theme="a" data-position="inline" >
+		<center>
+			<div style="display:none">
+				<select id="selhijos_dashboard" class="sel_hijos" data-theme="a" tabindex="-1" data-mini="true" data-native-menu="false" ></select>
+			</div>
+			<div class="lb_nombre_hijo ui-bar" style="display:none"></div>			
+		</center>
+		<!-- Nav -->
+		<a href="#cl_left_menu" class="ui-btn ui-btn-left ui-btn-icon-notext ui-icon-grid ui-corner-all"></a>
+
+    </div>
+
+    <div data-role="main" class="ui-content">
+
+      <div align="center" class="ui-btn">
+		    <span><a href="#" class="ui-icon-arrow-r" onclick="javascript:_get_nav_fecha('restar',1);" >&lt;&lt;</a></span>
+		    <span class="lb_fecha_hoy"></span>
+		    <span><a href="#"  class="ui-icon-arrow-l " onclick="javascript:_get_nav_fecha('sumar',1);">&gt;&gt;</a></span>
+		    <input type="hidden" id="input_dia_actual" />
+	    </div>
+
+      <h4 align="center">ASISTENCIA: TARDANZA</h4>
+	 
+		<ul data-role="listview" data-inset="true" id="comunicados_de_dashboard"></ul>
+	  
+      <div>
+        <a href="#cl_diario_calendar" data-icon="calendar" data-role="button" data-theme="a" class="btn_footer">Otros días</a>
+        <a href="#cl_diario_calendar" data-icon="check" data-role="button" data-theme="a" class="btn_footer">Confirmar Lectura</a>
+      </div>
+
+    </div>
+
+    <div data-role="footer" data-theme="a">
+      <h1>Hecho en 2015</h1>
+    </div>
+
+</section>
+
+
 <section data-role="page" id="cl_login">
-    <div data-role="header" data-theme="b" data-position="inline">
+    <div data-role="header" data-theme="a" data-position="inline">
       <h1>Colegio - Login</h1>
     </div>
 
@@ -55,119 +96,138 @@
         <input type="button" value="Ingresar" data-icon="check" id="cl_boton_submit">
       </form>
 
-      <a href="#cl_dashboard" data-role="button"  data-theme="b" style="width:90px">IR A HOME</a>
     </div>
 
-
-    <div data-role="footer"data-theme="b">
+    <div data-role="footer" data-theme="a">
       <h1>Hecho en 2015</h1>
     </div>
 </section>
- 
 
-<section data-role="page" id="cl_dashboard">
-    <div data-role="header" data-theme="b" data-position="inline" >
-		 <center>
-			<select  class="sel_hijos" data-theme="a" tabindex="-1" data-native-menu="false">
-				<option value="luis-sanchez">Luis Sanchez</option>
-				<option value="luis-sanchez">Hector Felipe</option>
-				<option value="luis-sanchez">Alberto Sanchez</option>
-			</select>		
-		</center>
-		<!-- Nav -->
-		<a href="#cl_left_menu" class="ui-btn ui-btn-left ui-btn-icon-notext ui-icon-grid ui-corner-all"></a>
-    </div>
-
-    <div data-role="main" class="ui-content">
-      <p align="center"><span class="lb_fecha_hoy"></a></p>
-      <a href="#cl_diario_calendar" data-icon="calendar" data-role="button" data-theme="b" style="width:90px">Agenda</a>
-      <a href="#cl_diario_calendar" data-icon="calendar" data-role="button" data-theme="b" style="width:90px">Confirmar Lectura</a>
-    </div>
-
-    <div data-role="footer" data-theme="b">
-      <h1>Hecho en 2015</h1>
-    </div>
-
-</section>
 
 <section data-role="page" id="cl_diario_calendar">
-    <div data-role="header" data-theme="b" data-position="inline" >
-		 <center>
-			<select  class="sel_hijos" data-theme="a" tabindex="-1" data-mini="true" data-native-menu="false">
-				<option value="luis-sanchez">Luis Sanchez</option>
-				<option value="luis-sanchez">Hector Felipe</option>
-				<option value="luis-sanchez">Alberto Sanchez</option>
-			</select>		
+    <div data-role="header" data-theme="a" data-position="inline" >
+		<center>
+			<div style="display:none">
+				<select class="sel_hijos" id="selhijos_diario_calendar" data-theme="a" tabindex="-1" data-mini="true" data-native-menu="false"></select>
+			</div>
+			<div class="lb_nombre_hijo ui-bar" style="display:none"></div>
+			<div class="lb_id_hijo" style="display:none"></div>			
 		</center>
 		<!-- Nav -->
 		<a href="#cl_left_menu" class="ui-btn ui-btn-left ui-btn-icon-notext ui-icon-grid ui-corner-all"></a>
     </div>
         
-    <div data-role="content" class="ui-bar-a"><h1 class="style_title">Notificaciones del día</h1></div>
+    <div data-role="content" class="ui-bar-a"><h1 class="style_title">Calendario Diario <span class="idx_dia"></span></h1></div>
     <div data-role="main" class="ui-content"> 
-      <div id="cl_diario_calendar_calendar"></div>
-    </div>
-    <div data-role="content" class="ui-bar-a">
-      <ul data-role="listview" data-inset="true">
-        <li>
-          <a href="#">
-            <h2>Texto del mensaje</h2>
-            <p>.....</p>
-          </a>
-          <a data-transition="pop" data-position-to="window" data-rel="popup" href="#purchase" aria-haspopup="true" aria-owns="purchase" aria-expanded="false" class="ui-btn ui-btn-icon-notext ui-icon-gear"></a>
-        </li>
-        <li>
-          <a href="#">
-            <h2>Citacion para el 30 de Julio</h2>
-            <p>.....</p>
-          </a>
-          <a data-transition="pop" data-position-to="window" data-rel="popup" href="#purchase" aria-haspopup="true" aria-owns="purchase" aria-expanded="false" class="ui-btn ui-btn-icon-notext ui-icon-gear"></a>            
-        </li>     
-        <li>
-          <a href="#">
-            <h2>Actividad para el 28 de Julio</h2>
-            <p>.....</p>
-          </a>
-          <a data-transition="pop" data-position-to="window" data-rel="popup" href="#purchase" aria-haspopup="true" aria-owns="purchase" aria-expanded="false" class="ui-btn ui-btn-icon-notext ui-icon-gear"></a>            
-        </li>    
-        <li>
-          <a href="#">
-            <h2>Comunicado</h2>
-            <p>.....</p>
-          </a>
-          <a data-transition="pop" data-position-to="window" data-rel="popup" href="#purchase" aria-haspopup="true" aria-owns="purchase" aria-expanded="false" class="ui-btn ui-btn-icon-notext ui-icon-gear"></a>            
-        </li>                                
-      </ul>
-    </div>
-    <div data-role="footer" data-theme="b">
+		<div id="cl_diario_calendar_calendar" style="margin-botton:10px"></div>
+		
+		<div data-role="listview" data-inset="true" id="comunicados_de_diario_calendar"> 
+		</div>
+		
+	</div>
+
+    <div data-role="footer" data-theme="a">
       <h1>Hecho en 2015</h1>
     </div>
 </section>
 
-        <!-- jQuery -->
-        <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<section data-role="page" id="cl_agenda">
+    <div data-role="header" data-theme="a" data-position="inline" >
+		<center>
+			<div style="display:none">
+				<select class="sel_hijos" id="selhijos_agenda" data-theme="a" tabindex="-1" data-mini="true" data-native-menu="false"></select>
+			</div>
+			<div class="lb_nombre_hijo ui-bar" style="display:none"></div>
+			<div class="lb_id_hijo" style="display:none"></div>			
+		</center>
+		<!-- Nav -->
+		<a href="#cl_left_menu" class="ui-btn ui-btn-left ui-btn-icon-notext ui-icon-grid ui-corner-all"></a>
+    </div>
+        
+    <div data-role="content" class="ui-bar-a"><h1 class="style_title">Agenda D&iacute;a <span class="idx_dia"></span></h1></div>
+    <div data-role="main" class="ui-content"> 
+		<div id="cl_agenda_calendar" style="margin-botton:10px"></div>
+		
+		<div data-role="listview" data-inset="true" id="eventos_de_agenda"> 
+		</div>
+		
+	</div>
 
-        <!-- JQM -->
-        <link rel="stylesheet" type="text/css" href="jqm/jquery.mobile-1.4.5.min.css">
-        <script type="text/javascript" src="jqm/jquery.mobile-1.4.5.min.js"></script>
+    <div data-role="footer" data-theme="a">
+      <h1>Hecho en 2015</h1>
+    </div>
+</section>
 
-        <!-- jcalendar -->
+<section data-role="page" id="cl_comunicados">
 
-        <link rel="stylesheet" type="text/css" href="jcalendar/jw-jqm-cal.css">
-        <script type="text/javascript" src="jcalendar/jw-jqm-cal.js"></script>
+	<div data-role="header" data-theme="a" data-position="inline" >
+		<center>
+			<div style="display:none">
+				<select id="selhijos_comunicados" class="sel_hijos" data-theme="a" tabindex="-1" data-mini="true" data-native-menu="false" ></select>
+			</div>
+			<div class="lb_nombre_hijo ui-bar" style="display:none"></div>			
+		</center>
+		<!-- Nav -->
+		<a href="#cl_left_menu" class="ui-btn ui-btn-left ui-btn-icon-notext ui-icon-grid ui-corner-all"></a>
+
+    </div>
+
+    <div data-role="main" class="ui-content">
+
+      <div align="center" class="ui-btn">
+		    Al <span class="lb_fecha_hoy"></span>
+	  </div>
+
+      <h4 align="center">COMUNICADOS</h4>
+	  <form class="ui-filterable">
+		<input id="filtrocomunicado-input" data-type="search">
+	  </form>
+	  <ul data-role="listview" data-inset="true" data-filter="true" id="eventos_de_comunicados" data-input="#filtrocomunicado-input"></ul>
+	  
+
+    </div>
+
+    <div data-role="footer" data-theme="a">
+      <h1>Hecho en 2015</h1>
+    </div>
+</section>
+
+<section data-role="page" id="cl_salir">
+</section>
 
 
-        <!-- jDrupal -->
-        <script type="text/javascript" src="js/jdrupal-7.x-1.2.min.js"></script>
+  <!-- jQuery -->
+  <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 
-        <!--<script type="text/javascript" src="cordova.js"></script>--><!-- got from cordova android platform folder -->
+  <!-- JQM -->
+  <link rel="stylesheet" type="text/css" href="jqm/jquery.mobile-1.4.5.min.css">
+  <script type="text/javascript" src="jqm/jquery.mobile-1.4.5.min.js"></script>
 
-        <!-- Custom code -->
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/cl_helper.js"></script>
-        <script type="text/javascript" src="js/page_cl_dashboard.js"></script>
-        <script type="text/javascript" src="js/page_cl_login.js"></script>
-        <script type="text/javascript" src="js/page_cl_diario_calendar.js"></script>
+  <!-- custom -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">        
+
+  <!-- jcalendar -->
+
+  <link rel="stylesheet" type="text/css" href="jcalendar/jw-jqm-cal.css">
+  <script type="text/javascript" src="jcalendar/jw-jqm-cal.js"></script>
+
+
+  <!-- jDrupal -->
+  <!--<script type="text/javascript" src="js/jdrupal-7.x-1.2.min.js"></script>-->
+  <script type="text/javascript" src="js/jdrupal-7.x-1.3.js"></script>
+
+  <!--<script type="text/javascript" src="cordova.js"></script>--><!-- got from cordova android platform folder -->
+
+  <!-- Custom code -->
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/sprintf.js"></script>
+  <script type="text/javascript" src="js/cl_helper.js"></script>
+  <script type="text/javascript" src="js/page_cl_dashboard.js"></script>
+  <script type="text/javascript" src="js/page_cl_login.js"></script>
+  <script type="text/javascript" src="js/page_cl_diario_calendar.js"></script>
+	<script type="text/javascript" src="js/page_cl_salir.js"></script>
+  <script type="text/javascript" src="js/page_cl_agenda.js"></script>
+  <script type="text/javascript" src="js/page_cl_comunicados.js"></script>
 
 </body>
 </html>

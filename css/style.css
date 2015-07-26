@@ -1,0 +1,14 @@
+
+.scroll_list {
+	height: 450px !important;
+	overflow: auto !important;
+}
+
+.icon_center {
+	top: 50% !important;
+	margin-top: -15px !important
+}
+
+.btn_footer {
+	font-size: 14px;
+}
