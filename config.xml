@@ -3,7 +3,7 @@
     <name>Colegio App</name>
 	<description>Aplicacion para el control de comunicados, citaciones, tareas, etc de uno o varios hijos.</description>
 	
-	<<plugin name="NetworkStatus" value="org.apache.cordova.NetworkManager" />
+	<plugin name="NetworkStatus" value="org.apache.cordova.NetworkManager" />
 	<plugin name="NetworkStatus" value="CDVConnection" />
 
 
