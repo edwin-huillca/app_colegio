@@ -91,3 +91,17 @@ h1 {
 .style_title {
     font-size: 18px;
 }
+
+.ui-li-normal{
+    white-space: normal !important;
+    margin-right: 3px !important;
+    
+}
+
+.ui-li-aside-home{
+    margin-right: -15px !important;
+}
+
+.title_dashboard{
+    width: 180px;
+}

@@ -1,17 +1,14 @@
 $( document ).on( 'pageinit', '#cl_dashboard', function() {
 
   // when every page loads for first time
-  console.log('loading home - first time');
 
 
   try {
 	var cl_user = cl_variable_get( 'cl_user' );
-	console.log( cl_user );
 	if ( cl_user ) {
 		Drupal.user =  $.parseJSON( cl_user );
 	}
 	
-	console.log ( Drupal.user.uid );
 	if ( Drupal.user.uid == '0' ) {
 		$.mobile.changePage( '#cl_login' );
 	}

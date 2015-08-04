@@ -65,6 +65,7 @@ Drupal.settings.endpoint = "rest";
 // jqm settings
 $.support.cors = true;
 $.mobile.allowCrossDomainPages = true;
+$.mobile.defaultTransition = 'none';
 
 // app settings
 var hoy = new Date();
@@ -77,7 +78,7 @@ cl_app.hijo_activo = 0; // guarda el nid del hijo activo
 
 
 // Panel for left menu
-var panel = '<div data-role="panel" id="cl_left_menu" data-position="left" data-display="push" data-theme="b"><div data-role="header"><h1>Menu</h1></div><ul data-role="listview" data-inset="true"><li><a href="#cl_dashboard">Home</a></li><li><a href="#cl_agenda">Agenda</a></li><li><a href="#cl_comunicados">Comunicados</a></li><li><a href="#">Direcci&oacute;n del colegio</a></li><li><a href="#">Menu del d&iacute;a</a></li><li><a href="#">Horario del profesor</a></li><li><a href="#">Horario de clases</a></li><li><a href="#cl_salir">Salir</a></li></ul></div>';
+var panel = '<div data-role="panel" id="cl_left_menu" data-position="left" data-display="push" data-theme="b"><div data-role="header"><h1>Menu</h1></div><ul data-role="listview" data-inset="true"><li><a href="#cl_dashboard">Home</a></li><li><a href="#cl_agenda">Agenda</a></li><li><a href="#cl_comunicados">Comunicados</a></li><li><a href="#cl_cole_direccion">Direcci&oacute;n del colegio</a></li><li><a href="#cl_menu_del_dia">Menu del d&iacute;a</a></li><li><a href="#cl_horario_profe">Horario del profesor</a></li><li><a href="#cl_horario_clases">Horario de clases</a></li><li><a href="#cl_salir">Salir</a></li></ul></div>';
 $(document).one('pagebeforecreate', function () {
     $.mobile.pageContainer.prepend(panel);
     $("#cl_left_menu").panel().enhanceWithin();
@@ -87,34 +88,49 @@ $(document).one('pagebeforecreate', function () {
 
 $( document ).on( "pageinit", function() {
 
+
+
+/*
+var data_request = {
+  name: 'cl_horario_clases',  // nombre del dato
+  done: function( data_recibida ){ console.log( data_recibida ); }, // funcion a ejecutar cuando se tiene el dato
+  fail: function( data_recibida ){ console.log('error:'); console.log( data_recibida ); } // funcion a ejecutar cuando se tiene errores
+};
+cl_get_data( data_request );
+*/
+
+//console.log('sel_hijos settings');  
   // when any page loads for first time
-	$(".sel_hijos").on('change', function ($x, $page){
+	$(".sel_hijos").on('change', function ($x, page){  // tener en cuenta - se esta ejecutando mas de una vez
 		var nid = 0;
 		if (cl_app.hijo_activo ==0) nid = parseInt($(this).val(),10);
 		
 		//Not evento trigger
-		if ($page !=""){
-			$page =$(this).attr("id").replace("selhijos_","");
+		if (page !=""){
+			page =$(this).attr("id").replace("selhijos_","");
 			
 			nid = parseInt($(this).val(),10);
 			cl_app.hijo_activo = nid;
 		}
 		
-		if ($page =="dashboard" || $page=="diario_calendar"){
-			_get_comunicaciones(nid,$page);
-		}else if($page =="agenda"){
-			_get_agenda(nid,$page);
-		}else if($page =="comunicados"){
-			_get_comunicados(nid,$page);
-		}
+		if (page =="dashboard" || page=="diario_calendar"){
+			_get_comunicaciones(page); // removed hijo
+            _get_asistencia(page);
+		}else if(page =="agenda"){
+			_get_agenda(page);
+		}else if(page =="comunicados"){
+			_get_comunicados(page);
+        }else if(page =="cole_direccion"){
+            _get_colegio();
+        }else if(page =="menu_del_dia"){
+            _get_menu_del_dia();
+        }else if(page =="horario_profe"){
+            _get_horario_profe();
+        }else if(page =="horario_clases"){
+            _get_horario_clases();            
+        }
 		
 		return false;
 	});
 
 });
-
-
-
-
-
-

@@ -12,4 +12,5 @@ $(document).on('pageshow', '#cl_salir', function() {
   anon_user.uid = 0;
   cl_variable_set( 'cl_user' , anon_user.uid );
   $.mobile.changePage( '#cl_login');
+  $("#_nav_sumar").hide();
 });

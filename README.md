@@ -1,3 +1,12 @@
+Info:
+
+```
+#!javascript
+
+cl_app.hijo_activo // el hijo activo, 0 si no hay hijos
+
+```
+
 Para pedir data:
 
 ```
@@ -15,7 +24,6 @@ cl_get_data( data_request );
 data_request = {
   name: 'cl_comunicaciones',
   fecha: '2015-07-13', // fecha de las comunicaciones
-  hijo:  '4',  // id del hijo
   done: function( data_recibida ){ console.log( data_recibida ); },
   fail: function( data_recibida ){ console.log('error:'); console.log( data_recibida ); }
 };
@@ -25,7 +33,6 @@ cl_get_data( data_request );
 data_request = {
   name: 'cl_agenda',
   fecha_agenda: '2015-07-25', // fecha de la agenda
-  hijo:  '4',  // id del hijo
   done: function( data_recibida ){ console.log( data_recibida ); },
   fail: function( data_recibida ){ console.log('error:'); console.log( data_recibida ); }
 };
@@ -34,17 +41,20 @@ cl_get_data( data_request );
 // Comunicados
 data_request = {
   name: 'cl_comunicados',
-  hijo:  '4',  // id del hijo
+  done: function( data_recibida ){ console.log( data_recibida ); },
+  fail: function( data_recibida ){ console.log('error:'); console.log( data_recibida ); }
+};
+cl_get_data( data_request );
+
+// Asistencia
+data_request = {
+  name: 'cl_asistencia',
   done: function( data_recibida ){ console.log( data_recibida ); },
   fail: function( data_recibida ){ console.log('error:'); console.log( data_recibida ); }
 };
 cl_get_data( data_request );
 
 
+
 ```
 
-
-Tipos de datos a pedir
-
-* cl_hijos <- todos los hijos del padre
-* cl_comunicaciones <- todas las comunicaciones por dia e hijo

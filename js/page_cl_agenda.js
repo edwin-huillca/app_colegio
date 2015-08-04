@@ -22,7 +22,6 @@ $( document ).on( 'pageinit', '#cl_agenda', function() {
 $( document ).on( 'pageshow', '#cl_agenda', function() {
 
 	_get_hijos('agenda');
-	console.log('loading #cl_agenda');
 
 	var eventsArray = [];
 
@@ -30,24 +29,51 @@ $( document ).on( 'pageshow', '#cl_agenda', function() {
        events : eventsArray,
        months : _get_months(),
        days : ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
-       startOfWeek : 1
+       startOfWeek : 1,
+	   bg:"bg"
+	  
     });
+	
+	$("#cl_agenda_calendar").trigger("refresh");
+	
+	setTimeout(function(){
+		var fecha_ac = $("#cl_agenda_calendar").data("jqm-calendar").settings.date;
+		var yyyymmStr = sprintf('%04d-%02d',fecha_ac.getFullYear(),(fecha_ac.getMonth() + 1));
+		
+		_get_mes_agenda($("#cl_agenda_calendar"),fecha_ac, yyyymmStr);
+	}, 1000);
+		
+	$('#cl_agenda_calendar .next-btn').bind('click', function(event,date){
+		console.log("mes next....::");
+		
+		var fecha_ac = $("#cl_agenda_calendar").data("jqm-calendar").settings.date;
+		var yyyymmStr = sprintf('%04d-%02d',fecha_ac.getFullYear(),(fecha_ac.getMonth() + 1));
+		console.log(yyyymmStr);
+		
+		_get_mes_agenda($("#cl_agenda_calendar"),fecha_ac, yyyymmStr);
+	});
+	
+	$('#cl_agenda_calendar .previous-btn').bind('click', function(event,date){
+		console.log("mes previous....::");
+		
+		var fecha_ac = $("#cl_agenda_calendar").data("jqm-calendar").settings.date;
+		var yyyymmStr = sprintf('%04d-%02d',fecha_ac.getFullYear(),(fecha_ac.getMonth() + 1));
+		console.log(yyyymmStr);
+		
+		_get_mes_agenda($("#cl_agenda_calendar"),fecha_ac, yyyymmStr);
+	});
 
-
-  $('#cl_agenda_calendar').trigger('refresh');
-
-
-	$('#cl_agenda_calendar').bind('change', function(event, date) { // este evento de javascript sucede cada vez que se clickea, hay que ver el que suceda sólo cuando cambia de mes.
-
+	$('#cl_agenda_calendar').bind('change', function(event, date) {
+		
 		var _yyyy_cal = date.getFullYear();
 		var _dd_cal = date.getDate();
 		var mmddStr = sprintf('%02d-%02d',(date.getMonth() + 1),_dd_cal);
 		var dt_agenda = _yyyy + "-" + mmddStr;
 		
 		$(".idx_dia").html(_dd_cal);
-		var nid = cl_app.hijo_activo;
+//		var nid = cl_app.hijo_activo;
 		
-		_get_agenda(nid,'agenda',dt_agenda);
+		_get_agenda('agenda',dt_agenda);
 
 	});
 

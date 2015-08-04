@@ -218,7 +218,7 @@
       function cellClickHandler() {
          var $this = $(this),
          date = $this.data('date');
-         $tbody.find("a.ui-btn-active").removeClass("ui-btn-active");
+         $tbody.find(".ui-btn").removeClass("ui-btn-active"); //$tbody.find("a.ui-btn-active").removeClass("ui-btn-active");
          $this.addClass("ui-btn-active");
          
          if ( date.getMonth() !== plugin.settings.date.getMonth() ) {

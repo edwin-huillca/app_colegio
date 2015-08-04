@@ -59,14 +59,14 @@
     <div data-role="main" class="ui-content">
 
       <div align="center" class="ui-btn">
-		    <span><a href="#" class="ui-icon-arrow-r" onclick="javascript:_get_nav_fecha('restar',1);" >&lt;&lt;</a></span>
-		    <span class="lb_fecha_hoy"></span>
-		    <span><a href="#"  class="ui-icon-arrow-l " onclick="javascript:_get_nav_fecha('sumar',1);">&gt;&gt;</a></span>
+		    <span><a href="#" class="ui-icon-arrow-r" id="_nav_restar" onclick="javascript:_get_nav_fecha('restar',1);" >&lt;&lt;</a></span>
+		    <span class="lb_fecha_hoy title_dashboard"></span>
+		    <span><a href="#"  class="ui-icon-arrow-l" id="_nav_sumar" onclick="javascript:_get_nav_fecha('sumar',1);" style="display:none">&gt;&gt;</a></span>
 		    <input type="hidden" id="input_dia_actual" />
 	    </div>
 
-      <h4 align="center">ASISTENCIA: TARDANZA</h4>
-	 
+      <h4 align="center">ASISTENCIA: <span id="asistencia_en_dashboard"></span></h4>
+   
 		<ul data-role="listview" data-inset="true" id="comunicados_de_dashboard"></ul>
 	  
       <div>
@@ -121,6 +121,7 @@
     <div data-role="main" class="ui-content"> 
 		<div id="cl_diario_calendar_calendar" style="margin-botton:10px"></div>
 		
+    <h4 align="center">ASISTENCIA: <span id="asistencia_en_diario_calendar"></span></h4>
 		<div data-role="listview" data-inset="true" id="comunicados_de_diario_calendar"> 
 		</div>
 		
@@ -192,7 +193,100 @@
     </div>
 </section>
 
+
 <section data-role="page" id="cl_salir">
+</section>
+
+<section data-role="page" id="cl_cole_direccion">
+    <div data-role="header" data-theme="a" data-position="inline" >
+    <center>
+      <div style="display:none">
+        <select id="selhijos_cole_direccion" class="sel_hijos" data-theme="a" tabindex="-1" data-mini="true" data-native-menu="false" ></select>
+      </div>
+      <div class="lb_nombre_hijo ui-bar" style="display:none"></div>      
+    </center>
+    <!-- Nav -->
+    <a href="#cl_left_menu" class="ui-btn ui-btn-left ui-btn-icon-notext ui-icon-grid ui-corner-all"></a>
+
+    </div>
+
+    <div data-role="main" class="ui-content">
+      <h4 align="center">COLEGIO:</h4>
+      <div id="direccion_colegio"></div>
+    </div>
+
+    <div data-role="footer" data-theme="a">
+      <h1>Hecho en 2015</h1>
+    </div>
+</section>
+
+<section data-role="page" id="cl_menu_del_dia">
+    <div data-role="header" data-theme="a" data-position="inline" >
+    <center>
+      <div style="display:none">
+        <select id="selhijos_menu_del_dia" class="sel_hijos" data-theme="a" tabindex="-1" data-mini="true" data-native-menu="false" ></select>
+      </div>
+      <div class="lb_nombre_hijo ui-bar" style="display:none"></div>      
+    </center>
+    <!-- Nav -->
+    <a href="#cl_left_menu" class="ui-btn ui-btn-left ui-btn-icon-notext ui-icon-grid ui-corner-all"></a>
+
+    </div>
+
+    <div data-role="main" class="ui-content">
+      <h4 align="center">MENU DEL DÍA:</h4>
+      <div id="content_html_menu_del_dia"></div>
+    </div>
+
+    <div data-role="footer" data-theme="a">
+      <h1>Hecho en 2015</h1>
+    </div>
+</section>
+
+<section data-role="page" id="cl_horario_profe">
+   <div data-role="header" data-theme="a" data-position="inline" >
+    <center>
+      <div style="display:none">
+        <select id="selhijos_horario_profe" class="sel_hijos" data-theme="a" tabindex="-1" data-mini="true" data-native-menu="false" ></select>
+      </div>
+      <div class="lb_nombre_hijo ui-bar" style="display:none"></div>      
+    </center>
+    <!-- Nav -->
+    <a href="#cl_left_menu" class="ui-btn ui-btn-left ui-btn-icon-notext ui-icon-grid ui-corner-all"></a>
+
+    </div>
+
+    <div data-role="main" class="ui-content">
+      <h4 align="center">HORARIO DEL PROFESOR:</h4>
+      <div id="content_html_horario_profe"></div>
+    </div>
+
+    <div data-role="footer" data-theme="a">
+      <h1>Hecho en 2015</h1>
+    </div>
+</section>
+
+<section data-role="page" id="cl_horario_clases">
+   <div data-role="header" data-theme="a" data-position="inline" >
+    <center>
+      <div style="display:none">
+        <select id="selhijos_horario_clases" class="sel_hijos" data-theme="a" tabindex="-1" data-mini="true" data-native-menu="false" ></select>
+      </div>
+      <div class="lb_nombre_hijo ui-bar" style="display:none"></div>      
+    </center>
+    <!-- Nav -->
+    <a href="#cl_left_menu" class="ui-btn ui-btn-left ui-btn-icon-notext ui-icon-grid ui-corner-all"></a>
+
+    </div>
+
+    <div data-role="main" class="ui-content">
+      <h4 align="center">HORARIO DE CLASES:</h4>
+      <div id="content_html_horario_clases"></div>
+    </div>
+
+    <div data-role="footer" data-theme="a">
+      <h1>Hecho en 2015</h1>
+    </div>
 </section>
 
 
@@ -228,6 +322,7 @@
 	<script type="text/javascript" src="js/page_cl_salir.js"></script>
   <script type="text/javascript" src="js/page_cl_agenda.js"></script>
   <script type="text/javascript" src="js/page_cl_comunicados.js"></script>
+  <script type="text/javascript" src="js/page_cl_general.js"></script>
 
 </body>
 </html>
