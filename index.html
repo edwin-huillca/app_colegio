@@ -11,8 +11,11 @@
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" charset="utf-8">
-         document.addEventListener("deviceready", cl_has_internet2, false);
+         document.addEventListener("deviceready", onDeviceReady, false);
 
+          function onDeviceReady() {
+              cl_has_internet2();
+          }
 
          function cl_has_internet2(){
 
