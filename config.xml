@@ -3,11 +3,12 @@
     <name>Colegio App</name>
 	<description>Aplicacion para el control de comunicados, citaciones, tareas, etc de uno o varios hijos.</description>
 	
-
-	<feature name="NetworkStatus">
-		<param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
-		<param name="ios-package" value="CDVConnection" />
-	</feature>
+	<!--
+		<feature name="NetworkStatus">
+			<param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+			<param name="ios-package" value="CDVConnection" />
+		</feature>
+	-->
 
 	<access origin="*" subdomains="true" />
 </widget>
