@@ -2,13 +2,13 @@ $( document ).on( 'pageinit', '#cl_login', function() {
 
   $('#cl_boton_submit').bind( "click", function(event, ui) {
 	  var estado_conexion = cl_has_internet();
-	  alert(estado_conexion);
-	
-    $.mobile.loading( 'show', {
-      text: 'Validando',
-      textVisible: true,
-      html: ''
-    });
+	 
+	  if (estado_conexion){
+      $.mobile.loading( 'show', {
+        text: 'Validando',
+        textVisible: true,
+        html: ''
+      });
 	
     
       user_login( $('#cl_usuario').val(), $('#cl_password').val(), {
@@ -22,9 +22,12 @@ $( document ).on( 'pageinit', '#cl_login', function() {
         alert(message);
       }
       });
-    
+
+    }else{
+      alert("No hay conexión.");
+    }
 	
-	return false;
+	  return false;
   })
    
 

@@ -761,20 +761,12 @@ function _rango_maxLength(fechaIn,fechaOut,longitud){
   }
 }
 
-function __cl_has_internet(){
-	
- if (window.navigator.onLine) {
-   return true;
- } else {
-   return false;
- }
-}
 
 function cl_has_internet(){
 
   var networkState = navigator.connection.type;
 
-  var states = {};
+  var states = [];
   states[Connection.UNKNOWN]  = false;
   states[Connection.ETHERNET] = true;
   states[Connection.WIFI]     = true;
