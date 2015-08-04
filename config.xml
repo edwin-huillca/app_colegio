@@ -4,11 +4,10 @@
 	<description>Aplicacion para el control de comunicados, citaciones, tareas, etc de uno o varios hijos.</description>
 	
 
-	<gap:config-file platform="android" parent="/manifest" mode="add">
-        <uses-permission android:name="com.colegioapp.permission.READ" />
-		<uses-permission android:name="com.colegioapp.permission.ACCESS_NETWORK_STATE" />
-		<uses-permission android:name="com.colegioapp.permission.INTERNET" />
-	</gap:config-file>
-	
+	<feature name="NetworkStatus">
+		<param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+		<param name="ios-package" value="CDVConnection" />
+	</feature>
+
 	<access origin="*" subdomains="true" />
 </widget>

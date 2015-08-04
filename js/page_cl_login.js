@@ -2,6 +2,8 @@ $( document ).on( 'pageinit', '#cl_login', function() {
 
   $('#cl_boton_submit').bind( "click", function(event, ui) {
 	if (cl_has_internet()){
+	}
+	
 	
     $.mobile.loading( 'show', {
       text: 'Validando',
@@ -21,9 +23,7 @@ $( document ).on( 'pageinit', '#cl_login', function() {
         alert(message);
       }
       });
-    }else{
-	  alert("Por favor, conectese a internet.");
-	}
+    
 	
 	return false;
   })
