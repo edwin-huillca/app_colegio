@@ -735,7 +735,10 @@ function _rango_para_meses(fecha){
 
 function _rango_maxLength(fechaIn,fechaOut,longitud){
 
+  
+
   while(true){
+ 
     arr_fechas.push(fechaIn[2]+"-"+fechaIn[1]+"-"+fechaIn[0]);
     //console.log("__:" + fechaIn[2]+"-"+fechaIn[1]+"-"+fechaIn[0]);
 
@@ -758,9 +761,9 @@ function _rango_maxLength(fechaIn,fechaOut,longitud){
     }
 
     
-  }
 }
 
+}
 
 function cl_has_internet(){
 
