@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget id="com.colegioapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets">
+    <name>Colegio App</name>
+	<description>Aplicacion para el control de comunicados, citaciones, tareas, etc de uno o varios hijos.</description>
+	
+
+	<gap:config-file platform="android" parent="/manifest" mode="add">
+        <!--<uses-permission android:name="com.some.app.permission.READ" />-->
+		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+		<uses-permission android:name="android.permission.INTERNET" />
+	</gap:config-file>
+	
+	<access origin="*" subdomains="true" />
+</widget>
