@@ -3,9 +3,13 @@
     <name>Colegio App</name>
 	<description>Aplicacion para el control de comunicados, citaciones, tareas, etc de uno o varios hijos.</description>
 	
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
 	<plugin name="NetworkStatus" value="org.apache.cordova.NetworkManager" />
+	<gap:plugin name="org.apache.cordova.network-information" />
 	<plugin name="NetworkStatus" value="CDVConnection" />
 
 
-	<access origin="*" subdomains="true" />
+	<access origin="*" />
 </widget>
