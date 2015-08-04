@@ -5,9 +5,9 @@
 	
 
 	<gap:config-file platform="android" parent="/manifest" mode="add">
-        <!--<uses-permission android:name="com.some.app.permission.READ" />-->
-		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-		<uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="com.colegioapp.permission.READ" />
+		<uses-permission android:name="com.colegioapp.permission.ACCESS_NETWORK_STATE" />
+		<uses-permission android:name="com.colegioapp.permission.INTERNET" />
 	</gap:config-file>
 	
 	<access origin="*" subdomains="true" />
