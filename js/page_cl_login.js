@@ -1,11 +1,7 @@
 $( document ).on( 'pageinit', '#cl_login', function() {
 
   $('#cl_boton_submit').bind( "click", function(event, ui) {
-	if (cl_has_internet()){
-    alert("conectado");
-	}else{
-    alert("sin conexion");
-  }
+	 cl_has_internet();
 	
 	
     $.mobile.loading( 'show', {

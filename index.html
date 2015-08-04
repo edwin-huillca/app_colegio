@@ -8,9 +8,34 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
 
         <title>Colegio</title>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" charset="utf-8">
+         document.addEventListener("deviceready", cl_has_internet, false);
+
+
+         function cl_has_internet(){
+
+          var networkState = navigator.connection.type;
+
+          var states = {};
+          states[Connection.UNKNOWN]  = false;
+          states[Connection.ETHERNET] = true;
+          states[Connection.WIFI]     = true;
+          states[Connection.CELL_2G]  = true;
+          states[Connection.CELL_3G]  = true;
+          states[Connection.CELL_4G]  = true;
+          states[Connection.CELL]     = true;
+          states[Connection.NONE]     = false;
+
+          if (states[networkState]) {
+              alert("conectado...");
+          } else {
+              alert("no conectado...");
+          }
+        }
+        </script>
     </head>
-
-
 <body>
 
 
@@ -280,12 +305,7 @@
   <!--<script type="text/javascript" src="js/jdrupal-7.x-1.2.min.js"></script>-->
   <script type="text/javascript" src="js/jdrupal-7.x-1.3.js"></script>
 
-  <script type="text/javascript" src="cordova.js"></script>
-  <!--
-  --><!-- got from cordova android platform folder -->
-  <script type="text/javascript">
-	 document.addEventListener("deviceready", cl_has_internet, false);
-  </script>
+ 
   <!-- Custom code -->
   <script type="text/javascript" src="js/index.js"></script>
   <script type="text/javascript" src="js/sprintf.js"></script>
