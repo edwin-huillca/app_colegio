@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget id="com.colegioapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets">
+<widget id="com.colegioapp" version="1.0.0" 
+    xmlns="http://www.w3.org/ns/widgets"
+    xmlns:cdv="http://cordova.apache.org/ns/1.0"
+    xmlns:gap="http://phonegap.com/ns/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+	>
     <name>Colegio App</name>
 	<description>Aplicacion para el control de comunicados, citaciones, tareas, etc de uno o varios hijos.</description>
-	
+	<!--
     <feature name="http://api.phonegap.com/1.0/device" />
 	<feature name="http://api.phonegap.com/1.0/network" />
+-->
+    <gap:plugin name="org.apache.cordova.device" version="0.2.12" source="pgb" />
+    <gap:plugin name="org.apache.cordova.network.Network" />
+
 	<access origin="*"/>
 </widget>
