@@ -12,7 +12,8 @@
 	<feature name="http://api.phonegap.com/1.0/network" />
 -->
     <gap:plugin name="org.apache.cordova.device" version="0.2.12" source="pgb" />
-    <gap:plugin name="org.apache.cordova.network.Network" />
+    <gap:plugin name="org.apache.cordova.network-information" />
+
 
 	<access origin="*"/>
 </widget>
