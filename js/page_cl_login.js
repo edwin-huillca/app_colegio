@@ -1,8 +1,8 @@
 $( document ).on( 'pageinit', '#cl_login', function() {
 
   $('#cl_boton_submit').bind( "click", function(event, ui) {
-	 cl_has_internet();
-	
+	  var estado_conexion = cl_has_internet();
+	  alert(estado_conexion);
 	
     $.mobile.loading( 'show', {
       text: 'Validando',
